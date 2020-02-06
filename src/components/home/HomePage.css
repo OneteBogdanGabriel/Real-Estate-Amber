@@ -1,0 +1,19 @@
+#SafeAreaView {
+  flex: 1;
+  margintop: 20;
+  marginhorizontal: 16;
+}
+
+#View {
+  backgroundcolor: "#f9c2ff";
+  padding: 20;
+  marginvertical: 8;
+}
+
+.header {
+  fontsize: 32;
+}
+
+.title {
+  fontsize: 24;
+}

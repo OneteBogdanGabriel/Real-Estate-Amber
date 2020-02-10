@@ -1,0 +1,9 @@
+.loginCard {
+  display: flex;
+
+  justify-content: center;
+  flex-direction: column;
+  max-width: 500;
+  max-height: 500;
+  margin: 15% 25% 30% 25%;
+}

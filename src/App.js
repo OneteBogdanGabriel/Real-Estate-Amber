@@ -1,37 +1,20 @@
 import React from "react";
-//import logo from "./logo.svg";
-//import { Link } from "react-router-dom";
-import "./App.css";
 import { Route } from "react-router-dom";
+import "./App.css";
 import HomePage from "./components/home/HomePage";
+import UserLogin from "./components/user/UserLogin";
 import UserPage from "./components/user/UserPage";
+import PropertySell from "./components/property/PropertySell";
 
 function App() {
   return (
     <div className="container-fluid">
       <Route exact path="/" component={HomePage} />
+      <Route path="/login" component={UserLogin} />
       <Route path="/user" component={UserPage} />
+      <Route path="/property-sell" component={PropertySell} />
     </div>
   );
-  /*return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Link to="homepage" className="btn bt-primary btn-lg">HomePage</Link>
-      </header>
-    </div>
-  );*/
 }
 
 export default App;

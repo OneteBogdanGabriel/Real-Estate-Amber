@@ -1,0 +1,17 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dropdownOptions {
+  display: flex;
+  align-items: center;
+}
+
+.companyLogo {
+  width: 150px;
+  height: auto;
+  margin-top: 15%;
+  margin-bottom: 25%;
+}

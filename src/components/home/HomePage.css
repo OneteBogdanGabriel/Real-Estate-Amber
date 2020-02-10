@@ -10,10 +10,14 @@
   marginvertical: 8;
 }
 
-.header {
-  fontsize: 32;
+.content {
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
-.title {
-  fontsize: 24;
+.body {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  flex-direction: column;
 }

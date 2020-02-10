@@ -2,27 +2,27 @@ import React from 'react';
 import "./CardContentBody.css";
 
 function CardContentBody(props) {
-
+    const { data } = props;
     return (
         <div className="container">
             <div className="row">
                 <div className="column-3 first-row-header">
                     <h6>Name:</h6>
-                    <p>House of Betrayal</p>
+                    <p>{data.name}</p>
                 </div>
                 <div className="column-3 first-row-header">
                     <h6>Type:</h6>
-                    <p>Mansion</p>
+                    <p>{data.type}</p>
                 </div>
                 <div className="column-3 first-row-header">
                     <h6>Sold:</h6>
-                    <p>100000$</p>
+                    <p>{data.sold_price + " " + data.currency}</p>
                 </div>
             </div>
             <div className="row">
                 <div className="column-12">
                     <h6>Description</h6>
-                    <p>Das ist en descriptionen</p>
+                    <p>{data.description}</p>
                 </div>
             </div>
         </div>

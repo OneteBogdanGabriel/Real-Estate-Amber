@@ -22,7 +22,7 @@ const ListCard = (props) => {
             properties={data}
             overline={"28 MAR 2019"}
             heading={<CardContentHeader />}
-            body={<CardContentBody />}
+            body={<CardContentBody data={data}/>}
           />
         </CardContent>
       </Card>

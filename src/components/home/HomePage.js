@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 import Immutable from "immutable";
-import ListView from "./list/ListView";
+import ListViewContainer from "./list/ListViewContainer";
 import SearchFields from "./SearchFields";
 import Header from "../header/Header";
 
@@ -12,26 +12,29 @@ function HomePage(props) {
   const [properties, handleProperties] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/properties', {
-      method: 'GET',
+    fetch("http://localhost:3001/properties", {
+      method: "GET",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-    }).then((resp) => {
-      return resp.json();
-    }).then((data) => {
-      // Save local state or dispatch redux action
-      // console.log(data);
-      handleProperties(data);
-    }).catch((err) => console.log(err));
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(resp => {
+        return resp.json();
+      })
+      .then(data => {
+        // Save local state or dispatch redux action
+        // console.log(data);
+        handleProperties(data);
+      })
+      .catch(err => console.log(err));
   }, []);
-console.log(properties);
+  console.log(properties);
   return (
     <div className="content">
       <div className="body">
         <Header />
-        <ListView properties={properties}/>
+        <ListViewContainer properties={properties} />
       </div>
     </div>
   );

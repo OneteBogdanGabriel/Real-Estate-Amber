@@ -3,7 +3,7 @@ import ListCard from "./ListCard";
 import Pagination from "@material-ui/lab/Pagination";
 
 const mapListDataToCard = propertiesList => {
-  return <ListCard id={propertiesList.id} data={propertiesList} />;
+  return <ListCard key={propertiesList.id} data={propertiesList} />;
 };
 
 const ListView = props => {

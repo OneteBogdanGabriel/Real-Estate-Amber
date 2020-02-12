@@ -1,7 +1,7 @@
 import React from "react";
 import DropdownOptions from "./DropdownOptions";
 import "./Header.css";
-import img from "../../amberinternational-logo.svg";
+import img from "../../../amberinternational-logo.svg";
 
 function Header(props) {
   return (

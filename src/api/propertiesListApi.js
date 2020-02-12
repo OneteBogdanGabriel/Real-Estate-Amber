@@ -1,5 +1,6 @@
 import { handleResponse, handleError } from "./apiUtils";
-const baseUrl = process.env.API_URL + "/";
+import { SERVER_URL } from '../http/http'
+const baseUrl = SERVER_URL + "/properties";
 
 export function getProperties() {
   return fetch(baseUrl)

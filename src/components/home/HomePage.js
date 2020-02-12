@@ -1,35 +1,28 @@
 import React, { useEffect, useState } from "react";
+import { PropTypes } from "prop-types";
+import { connect } from "react-redux";
 import "./HomePage.css";
-import Immutable from "immutable";
 import ListViewContainer from "./list/ListViewContainer";
 import SearchFields from "./SearchFields";
-import Header from "../header/Header";
+import Header from "../common/header/Header";
+import { get } from "../../http/http";
 
 function HomePage(props) {
   /*static contextTypes = {
     list: PropTypes.instanceOf(Immutable.List).isRequired
   };*/
-  const [properties, handleProperties] = useState([]);
+  const { properties } = props;
+  // const [properties, handleProperties] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:3001/properties", {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    })
-      .then(resp => {
-        return resp.json();
-      })
-      .then(data => {
-        // Save local state or dispatch redux action
-        // console.log(data);
-        handleProperties(data);
-      })
-      .catch(err => console.log(err));
-  }, []);
-  console.log(properties);
+  // Save local state or dispatch redux action
+  // useEffect(() => {
+  //   get("http://localhost:3001/properties").then(data => {
+  //     // console.log(data);
+  //     handleProperties(data);
+  //   });
+  // }, []);
+  // console.log(properties);
+
   return (
     <div className="content">
       <div className="body">
@@ -40,4 +33,20 @@ function HomePage(props) {
   );
 }
 
-export default HomePage;
+HomePage.defaultProps = {
+  properties: []
+};
+
+HomePage.propTypes = {
+  properties: PropTypes.array
+};
+
+const mapStateToProps = state => {
+  return {
+    properties: state.properties
+  };
+};
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

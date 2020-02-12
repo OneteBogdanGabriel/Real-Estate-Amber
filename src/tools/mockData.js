@@ -81,8 +81,8 @@ const properties = [
   }
 ];
 
-const sellers = [
-  { id: 1, name: "Bogdan Onete", email: "onete.bogdan.93@gmail.com" },
+const users = [
+  { id: 1, name: "Bogdan Onete", email: "onete.bogdan.93@gmail.com", password:"123" },
   { id: 2, name: "James T. Kirk", email: "onete.bogdan.93@gmail.com" },
   { id: 3, name: "Jon Snow", email: "onete.bogdan.93@gmail.com" }
 ];
@@ -97,9 +97,17 @@ const newProperty = {
   sellerId: null
 };
 
+const newUser = {
+  id: null,
+  name: "",
+  email: "",
+  password: ""
+}
+
 // Using CommonJS style export so we can consume via Node (without using Babel-node)
 module.exports = {
   newProperty,
   properties,
-  sellers
+  users,
+  newUser
 };

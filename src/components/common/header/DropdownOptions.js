@@ -8,23 +8,14 @@ const DropdownOptions = (props) => {
 
   const toggle = () => setDropdownOpen(prevState => !prevState);
 
-  /*<Dropdown isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle caret classname="userIcon">
-        <p>User</p>
-        <i class="far fa-user-cog" />
-      </DropdownToggle>*/
-    /*      <DropdownButton classname="userIcon">
-        <p>User</p>
-        <i class="far fa-user-cog" />
-      </DropdownButton>*/
   return (
     <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle caret classname="userIcon">
-            User<i class="far fa-user-cog" />
+        <DropdownToggle caret className="userIcon">
+            User<i className="far fa-user-cog" />
         </DropdownToggle>
       <DropdownMenu>
         <DropdownItem><Link to="/settings" style={{ textDecoration: 'none' }}>Settings</Link></DropdownItem>
-        <DropdownItem><Link to="/sell" className="btn" textDecoration='none'>Sell Property</Link></DropdownItem>
+        <DropdownItem><Link to="/property-sell" className="btn" textDecoration='none'>Sell Property</Link></DropdownItem>
         <DropdownItem>Log Out</DropdownItem>
       </DropdownMenu>
     </Dropdown>

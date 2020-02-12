@@ -1,65 +1,64 @@
 import React from "react";
-import { connect } from "react-redux";
-import * as userActions from "../../redux/actions/userActions";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import "./UserSignUp.css";
 
 const UserSignUp = props => {
-    //onSubmit={handleSubmit}
-    let state = {
-        user: {
-          email: "",
-          password: ""
-        }
-      };
-    
-    const handleChange = event => {
-        const property = { ...this.state.property, name: event.target.value };
-        this.setState({ property });
-      };
-    
-   const handleSubmit = event => {
-        event.preventDefault();
-        this.props.dispatch(userActions.createProperty(this.state.user));
-      };
+  const { user, onChange, onSave, saving } = props;
 
-    return (
-      <div className="signUpCard">
-        <form>
-          <div>
-            <label>Email</label>
-            <input name="email" type="email" placeholder="Enter email" />
-          </div>
-          <div>
-            <label>Password</label>
-            <input
-              name="password"
-              type="password"
-              placeholder="Enter password"
-            />
-            <input
-              name="password2"
-              type="password"
-              placeholder="Confirm password"
-            />
-          </div>
-          <div>
-            <button type="button">Sign Up</button>
-            <Link to="/" className="btn btn-primary">Home</Link>
-          </div>
-        </form>
-      </div>
-    );
-  };
-
-UserSignUp.propTypes = {
-  dispatch: PropTypes.func.isRequired
+  return (
+    <div className="signUpCard">
+      <form onSubmit={onSave}>
+        <div>
+          <label>Email</label>
+          <input
+            name="email"
+            type="email"
+            placeholder="Enter email"
+            onChange={onChange}
+          />
+        </div>
+        <div>
+          <label>Name</label>
+          <input
+            name="name"
+            type="text"
+            placeholder="Enter name"
+            onChange={onChange}
+          />
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            name="password"
+            type="password"
+            placeholder="Enter password"
+            onChange={onChange}
+          />
+          <input
+            name="password2"
+            type="password"
+            placeholder="Confirm password"
+            onChange={onChange}
+          />
+        </div>
+        <div>
+          <button type="submit" disabled={saving} className="btn btn-primary">
+            {saving ? "Saving..." : "Save"}
+          </button>
+          <Link to="/" className="btn btn-primary">
+            Home
+          </Link>
+        </div>
+      </form>
+    </div>
+  );
 };
 
-function mapStateToProps(state) {
-  return {
-    property: state.property
-  };
-}
+UserSignUp.propTypes = {
+  onSave: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  saving: PropTypes.bool
+};
 
-export default connect(mapStateToProps)(UserSignUp);
+export default UserSignUp;
